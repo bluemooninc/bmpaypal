@@ -1,0 +1,51 @@
+<div class="adminnavi">
+	<a href="./index.php"><{$smarty.const._MI_PAYPAL_TITLE}></a>
+	&raquo;&raquo; <span class="adminnaviTitle"><a href="./index.php?action=CategoryList">
+	<{$smarty.const._AD_PAYPAL_LIST}></a></span>
+</div>
+
+<h3 class="admintitle"><{$smarty.const._AD_PAYPAL_PAYMENT}></h3>
+
+<table class="outer">
+	<tr>
+		<th><{$smarty.const._AD_PAYPAL_ID}>
+			<a href="<{$pageNavi->renderUrlForSort()}>&amp;sort=<{$smarty.const.LOCATION_SORT_KEY_LOCATION_PAYMENT}>"><img src="<{"icons/up.png"|theme}>" alt="<{$smarty.const._ASCENDING}>" title="<{$smarty.const._ASCENDING}>" /></a>
+			<a href="<{$pageNavi->renderUrlForSort()}>&amp;sort=-<{$smarty.const.LOCATION_SORT_KEY_LOCATION_PAYMENT}>"><img src="<{"icons/down.png"|theme}>" alt="<{$smarty.const._DESCENDING}>" title="<{$smarty.const._DESCENDING}>" /></a></th>
+		<th><{$smarty.const._AD_PAYPAL_UID}>
+			<a href="<{$pageNavi->renderUrlForSort()}>&amp;sort=<{$smarty.const.LOCATION_SORT_KEY_NAME}>"><img src="<{"icons/up.png"|theme}>" alt="<{$smarty.const._ASCENDING}>" title="<{$smarty.const._ASCENDING}>" /></a>
+			<a href="<{$pageNavi->renderUrlForSort()}>&amp;sort=-<{$smarty.const.LOCATION_SORT_KEY_NAME}>"><img src="<{"icons/down.png"|theme}>" alt="<{$smarty.const._DESCENDING}>" title="<{$smarty.const._DESCENDING}>" /></a></th>
+		<th><{$smarty.const._AD_PAYPAL_ORDERID}>
+			<a href="<{$pageNavi->renderUrlForSort()}>&amp;sort=<{$smarty.const.LOCATION_SORT_KEY_LOCATION_STATUS}>"><img src="<{"icons/up.png"|theme}>" alt="<{$smarty.const._ASCENDING}>" title="<{$smarty.const._ASCENDING}>" /></a>
+			<a href="<{$pageNavi->renderUrlForSort()}>&amp;sort=-<{$smarty.const.LOCATION_SORT_KEY_LOCATION_STATUS}>"><img src="<{"icons/down.png"|theme}>" alt="<{$smarty.const._DESCENDING}>" title="<{$smarty.const._DESCENDING}>" /></a></th>
+		</th>
+		<th><{$smarty.const._AD_PAYPAL_AMOUNT}></th>
+		<th><{$smarty.const._AD_PAYPAL_CURRENCY}></th>
+		<th><{$smarty.const._AD_PAYPAL_PAYPAL_ID}></th>
+		<th><{$smarty.const._AD_PAYPAL_STATE}></th>
+		<th><{$smarty.const._AD_PAYPAL_PAYER_ID}></th>
+		<th><{$smarty.const._AD_PAYPAL_UTIME}></th>
+		<th><{$smarty.const._AD_PAYPAL_CONTROL}></th>
+	</tr>
+	<{foreach item=row from=$objects}>
+	<tr class="<{cycle values='odd,even'}>">
+		<td><{$row->getShow('id')}></td>
+		<td><{$row->getShow('uid')}></td>
+		<td><{$row->getShow('order_id')}></td>
+		<td align="right"><{$row->getShow('amount')}></td>
+		<td><{$row->getShow('currency')}></td>
+		<td><{$row->getShow('paypal_id')}></td>
+		<td><{$row->getShow('state')}></td>
+		<td><{$row->getShow('payer_id')}></td>
+		<td><{$row->getShow('utime')|date_format:"%G-%m-%d %H:%M"}></td>
+		<td class="list_control">
+			<{if $row->getShow('state')=='Accepted' && $row->getShow('payer_id')}>
+			<a href="index.php?action=paymentExecute&amp;id=<{$row->getShow('id')}>">
+				<img src="<{"icons/permission.png"|theme}>" alt="<{$smarty.const._AD_PAYPAL_EXEC_TRANSIT}>" title="<{$smarty.const._AD_PAYPAL_EXEC_TRANSIT}>" />
+			</a>
+			<{/if}>
+		</td>
+	</tr>
+	<{/foreach}>
+</table>
+
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>

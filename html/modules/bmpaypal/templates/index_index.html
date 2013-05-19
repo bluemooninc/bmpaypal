@@ -1,0 +1,41 @@
+<h3><{$smarty.const._MD_PAYPAL_RECEIPT}></h3>
+
+<table class="table">
+	<tr>
+		<th><{$smarty.const._MD_PAYPAL_ORDERID}></th>
+		<th><{$smarty.const._MD_PAYPAL_AMOUNT}></th>
+		<!--<th><{$smarty.const._MD_PAYPAL_TAX}></th>-->
+		<th><{$smarty.const._MD_PAYPAL_TABLE_DATE}></th>
+		<th><{$smarty.const._MD_PAYPAL_TABLE_STATUS}></th>
+	</tr>
+	<{foreach item=val from=$ListData}>
+	<tr>
+		<td class="even"><{$val.orderId}></td>
+		<td class="even">&yen;<{$val.amount|number_format}></td>
+		<!--<td class="even"><{$val.tax}></td>-->
+		<td class="even"><{$val.utime|xoops_formattimestamp:l}></td>
+		<td class="odd" align="center">
+			<{if $val.status==0}>
+				<{$smarty.const._MD_PAYPAL_HOLD}>
+			<{/if}>
+			<{if $val.status==1}>
+			<!--<input type="checkbox" name="delmsg[]" value="<{$val.inbox_id}>"/>-->
+			<{$smarty.const._MD_PAYPAL_DONETRAN}>
+			<{/if}>
+		</td>
+	</tr>
+	<{/foreach}>
+</table>
+<div class="pagenavi" align="center"><{xoops_pagenavi pagenavi=$pageNavi}></div>
+<script>
+	$(function () {
+		$('#button1').click(function () {
+			$('#list').attr('action', '<{$xoops_url}>/modules/bmpaypal/default/index');
+			$('#list').submit();
+		});
+		$('#button2').click(function () {
+			$('#list').attr('action', '<{$xoops_url}>/modules/bmpaypal/default/edit');
+			$('#list').submit();
+		});
+	});
+</script>

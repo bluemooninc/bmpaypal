@@ -1,0 +1,74 @@
+<h3><{$smarty.const._MD_PAYPAL_TITLE_SEARCHCARD}></h3>
+<p>
+    <{$smarty.const._MD_PAYPAL_DONE_SEARCHCARD}>
+</p>
+
+<{if $message}>
+<div class="alert">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Warning!</strong> <{$message}>
+</div>
+<{/if}>
+
+<table class="table">
+    <tr>
+        <th>
+            <{$smarty.const._MD_PAYPAL_MEMBERID}>(MemberID)
+        </th>
+        <td>
+            <{$xoops_userid}>-<{$xoops_userid|xoops_user:"user_name"}>
+        </td>
+    </tr>
+    <{foreach item=val from=$ListData}>
+    <tr>
+        <th>
+            <{$smarty.const._MD_PAYPAL_CARDSEQ}>(CardSeq)
+        </th>
+        <td>
+            <{$val.CardSeq}>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <{$smarty.const._MD_PAYPAL_EXPIRE}>(Expire)
+        </th>
+        <td>
+            <{$val.Expire}>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <{$smarty.const._MD_PAYPAL_CARDNO}>(CardNo)
+        </th>
+        <td>
+            <{$val.CardNo}>
+        </td>
+    </tr>
+<{*
+    <tr>
+        <th>
+            <{$smarty.const._MD_PAYPAL_CARDNAME}>(CardName)
+        </th>
+        <td>
+            <{$val.CardName}>
+        </td>
+    </tr>
+*}>
+    <tr>
+        <th>
+            <{$smarty.const._MD_PAYPAL_HOLDERNAME}>(HolderName)
+        </th>
+        <td>
+            <{$val.HolderName}>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            <{$smarty.const._MD_PAYPAL_DEFAULTFLAG}>(DefaultFlag)
+        </th>
+        <td>
+            <{$val.DefaultFlag}>
+        </td>
+    </tr>
+    <{/foreach}>
+</table>

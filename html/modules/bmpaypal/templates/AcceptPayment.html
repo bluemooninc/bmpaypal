@@ -1,0 +1,9 @@
+<h1><{$smarty.const._MD_PAYPAL_MOVE_TO_PAYPAL}></h1>
+<label>
+	<{$smarty.const._MD_PAYPAL_MOVE_TO_PAYPAL_DESC}>
+</label>
+<{foreach item=link from=$links}>
+	<{if $link.rel eq "approval_url"}>
+	<a class="btn btn-primary" href="<{$link.href}>"><{$link.method}> To PayPal</a>
+	<{/if}>
+<{/foreach}>

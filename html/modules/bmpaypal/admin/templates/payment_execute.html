@@ -1,0 +1,63 @@
+<div class="adminnavi">
+	<a href="./index.php"><{$smarty.const._MI_PAYPAL_TITLE}></a>
+	&raquo;&raquo;
+	<span class="adminnaviTitle">
+		<a href="./index.php?action=OrderList">
+			<{$smarty.const._AD_PAYPAL_PAYMENT_EXECUTE}>
+		</a>
+	</span>
+</div>
+
+<h3 class="admintitle"><{$smarty.const._AD_PAYPAL_PAYMENT_EXECUTE}></h3>
+<div class="tips"><{$smarty.const._AD_PAYPAL_TIPS_EXECUTE}></div>
+
+<form action="?action=PaymentExecute" method="post">
+	<{xoops_token form=$actionForm}>
+	<{xoops_input type=hidden name=id value=$object->get('id')}>
+	<table class="outer">
+		<tr>
+			<th colspan="2">
+				<{$smarty.const._AD_PAYPAL_PAYMENT_EXECUTE}> (<{$object->get('id')}>)
+			</th>
+		</tr>
+		<tr>
+			<td class="head"><{$smarty.const._AD_PAYPAL_UID}></td>
+			<td class="<{cycle values="odd,even"}>"><{$object->get('uid')}></td>
+		</tr>
+		<tr>
+			<td class="head"><{$smarty.const._AD_PAYPAL_ORDERID}></td>
+			<td class="<{cycle values="odd,even"}>"><{$object->get('order_id')}></td>
+		</tr>
+		<tr>
+			<td class="head"><{$smarty.const._AD_PAYPAL_AMOUNT}></td>
+			<td class="<{cycle values="odd,even"}>"><{$object->get('amount')}></td>
+		</tr>
+		<tr>
+			<td class="head"><{$smarty.const._AD_PAYPAL_CURRENCY}></td>
+			<td class="<{cycle values="odd,even"}>"><{$object->get('currency')}></td>
+		</tr>
+		<tr>
+			<td class="head"><{$smarty.const._AD_PAYPAL_PAYPAL_ID}></td>
+			<td class="<{cycle values="odd,even"}>"><{$object->get('paypal_id')}></td>
+		</tr>
+		<tr>
+			<td class="head"><{$smarty.const._AD_PAYPAL_STATE}></td>
+			<td class="<{cycle values="odd,even"}>"><{$object->get('state')}></td>
+		</tr>
+		<tr>
+			<td class="head"><{$smarty.const._AD_PAYPAL_PAYER_ID}></td>
+			<td class="<{cycle values="odd,even"}>"><{$object->get('payer_id')}></td>
+		</tr>
+		<tr>
+			<td class="head"><{$smarty.const._AD_PAYPAL_UTIME}></td>
+			<td class="<{cycle values="odd,even"}>"><{$object->get('utime')|date_format:"%G-%m-%d %H:%M"}></td>
+		</tr>
+		<tr>
+			<td colspan="2" class="foot">
+				<input class="formButton" type="submit" value="<{$smarty.const._BACK}>" name="_form_control_cancel"/>
+				<input class="formButton" type="submit" value="<{$smarty.const._AD_PAYPAL_EXECUTE_DO}>"/>
+			</td>
+		</tr>
+	</table>
+</form>
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>

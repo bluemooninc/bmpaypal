@@ -1,0 +1,18 @@
+<h1><{$smarty.const._MD_PAYPAL_PAY_BY_PAYPAL}></h1>
+<{$smarty.const._MD_PAYPAL_PAY_BY_PAYPAL_DSEC}>
+
+<form action="?action=PaymentEdit" method="post">
+	<{xoops_token form=$actionForm}>
+	<{xoops_input type=hidden name=category_id value=$actionForm->get('id')}>
+	<label>
+	<{$actionForm->get('order_id')}>
+	</label>
+	<label>
+		<{$smarty.const._MD_PAYPAL_AMOUNT}><{$actionForm->get('currency')}>
+		<{xoops_input type=text name=amount value=$actionForm->get('amount')}>
+		<{xoops_input type=hidden name=order_id value=$actionForm->get('order_id')}>
+		<{xoops_input type=hidden name=currency value=$actionForm->get('currency')}>
+	</label>
+	<input class="formButton" type="submit" value="<{$smarty.const._BACK}>" name="_form_control_cancel"/>
+	<input class="formButton" type="submit" value="<{$smarty.const._SUBMIT}>"/>
+</form>

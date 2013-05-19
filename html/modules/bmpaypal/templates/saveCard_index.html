@@ -1,0 +1,92 @@
+<h3><{$smarty.const._MD_PAYPAL_TITLE_SAVECARD}></h3>
+<p>
+	<{$smarty.const._MD_PAYPAL_DESC_SAVECARD}>
+</p>
+
+<{if $message}>
+<div class="alert">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Warning!</strong> <{$message}>
+</div>
+<{/if}>
+
+<form id="list" name="list" method="post" action="<{$xoops_url}>/modules/bmpaypal/saveCard/submit">
+	<table class="table">
+		<tr>
+			<th>
+				<{$smarty.const._MD_PAYPAL_MEMBERID}>
+			</th>
+			<td>
+				<{$xoops_userid}>-<{$xoops_userid|xoops_user:"user_name"}>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<{$smarty.const._MD_PAYPAL_CARDNAME}>
+			</th>
+			<td>
+				<input name="CardName" type="text" maxlength="10" size="10"/>
+			</td>
+		</tr>
+
+		<tr>
+			<th>
+				<{$smarty.const._MD_PAYPAL_CARDNO}>
+			</th>
+			<td>
+				<input name="CardNo" type="text" />
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<{$smarty.const._MD_PAYPAL_EXPIRE}>
+			</th>
+			<td>
+				<input name="ExpireMonth" type="text" maxlength="2" size="2" /><{$smarty.const._MD_PAYPAL_MONTH}>
+				<input name="ExpireYear" type="text" maxlength="4" size="5" /><{$smarty.const._MD_PAYPAL_YEAR}>
+			</td>
+		</tr>
+		<tr>
+			<th><{$smarty.const._MD_PAYPAL_FIRSTNAME}></th>
+			<td>
+				<input name="FirstName" type="text" />
+			</td>
+		</tr>
+		<tr>
+			<th><{$smarty.const._MD_PAYPAL_LASTNAME}></th>
+			<td>
+				<input name="LastName" type="text" />
+			</td>
+		</tr>
+		<{*
+		<tr>
+			<th>
+				<{$smarty.const._MD_PAYPAL_DEFAULTFLAG}>
+			</th>
+			<td>
+				<label for="def1">
+					<input name="DefaultFlag" id="def1" type="radio" value="1" checked="checked" />
+					<{$smarty.const._MD_PAYPAL_DO}>
+				</label>
+				<label for="def0">
+					<input name="DefaultFlag" id="def0" type="radio" value="0" />
+					<{$smarty.const._MD_PAYPAL_DONOT}>
+				</label>
+			</td>
+		</tr>
+		*}>
+	</table>
+	<div style="text-align:center">
+		<input type="hidden" name="method" value="submit"/>
+		<a class="btn btn-small" href="<{$return_url}>"><{$smarty.const._MD_PAYPAL_RETURN_URL}></a>
+		<input class="btn btn-primary" id="button1" type="button" value="<{$smarty.const._MD_PAYPAL_RESISTER}>"/>
+	</div>
+</form>
+<script>
+	$(function () {
+		$('#button1').click(function () {
+			$('#list').attr('action', '<{$xoops_url}>/modules/bmpaypal/saveCard/submit');
+			$('#list').submit();
+		});
+	});
+</script>
