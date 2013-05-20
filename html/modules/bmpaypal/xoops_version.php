@@ -19,6 +19,7 @@ $modversion['adminindex'] = "admin/index.php";
 $modversion['adminmenu'] = "admin/menu.php";
 $modDir = $modversion["dirname"];
 $modversion['sub'][] = array('name' => _MI_PAYPAL_PAY_BY_PAYPAL, 'url' => 'BmPayPal');
+$modversion['sub'][] = array('name' => _MI_PAYPAL_PAYMENT_HISTORY, 'url' => 'BmPayPal/PaymentHistory');
 $modversion['sub'][] = array('name' => _MI_PAYPAL_CARD_PAYMENT, 'url' => 'CardPayment');
 $modversion['sub'][] = array('name' => _MI_PAYPAL_SAVE_CARD  , 'url' => 'saveCard');
 $modversion['sub'][] = array('name' => _MI_PAYPAL_SEARCH_CARD, 'url' => 'searchCard');
@@ -34,6 +35,7 @@ $modversion['templates'][] = array( 'file' => "hoge.html" );
 $modversion['templates'][] = array( 'file' => "AcceptPayment.html" );
 $modversion['templates'][] = array( 'file' => "ExecutePayment.html" );
 $modversion['templates'][] = array( 'file' => "BmPayPal.html" );
+$modversion['templates'][] = array( 'file' => "payment_history.html" );
 $modversion['templates'][] = array( 'file' => "payment_detail.html" );
 $modversion['templates'][] = array( 'file' => "payment_edit.html" );
 // for memberSave controller

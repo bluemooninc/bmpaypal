@@ -42,10 +42,17 @@ class Model_PayPal extends AbstractModel
 	 */
 	public function __construct()
 	{
+		parent::__construct();
 		$this->_module_names = $this->getModuleNames();
 		$this->host = $this->root->mContext->mModuleConfig['PAYPAL_ENDPOINT'];
 		$this->clientId = $this->root->mContext->mModuleConfig['PAYPAL_CLIENT_ID'];
 		$this->clientSecret = $this->root->mContext->mModuleConfig['PAYPAL_SECRET'];
+		if(!$this->isValidURL($this->host)){
+			die("<h1>PayPal module error</h1>URL error on host setting.");
+		}
+		if(!$this->clientId or !$this->clientSecret){
+			die("<h1>PayPal module error</h1>No exsist ClientId/ClientSecret on Admin panel. Get it from https://developer.paypal.com/");
+		}
 	}
 
 	/**

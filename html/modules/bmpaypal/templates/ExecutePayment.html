@@ -1,1 +1,12 @@
-<{$state}>
+<{if $state eq "Accepted"}>
+	<h1><{$state}></h1>
+	<{$smarty.const._MD_PAYPAL_DONE_ENTRYTRAN}>
+	<ul>
+		<li><{$smarty.const._MD_PAYPAL_ID}>: <{$paymentObject->getShow('id')}></li>
+		<li><{$smarty.const._MD_PAYPAL_ORDER_ID}>: <{$paymentObject->getShow('order_id')}></li>
+		<li><{$smarty.const._MD_PAYPAL_AMOUNT}>: <{$paymentObject->getShow('amount')}></li>
+	</ul>
+<{else}>
+	<h1><{$state}></h1>
+	<{$smarty.const._MD_PAYPAL_DONE_CANCELLED}>
+<{/if}>

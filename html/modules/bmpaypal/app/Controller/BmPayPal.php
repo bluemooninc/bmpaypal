@@ -11,6 +11,7 @@ require_once _MY_MODULE_PATH . 'app/Model/Payment.php';
 
 class Controller_Bmpaypal extends AbstractAction {
 	protected $index;
+	protected $userObject;
 	public function __construct()
 	{
 		parent::__construct();
@@ -35,12 +36,28 @@ class Controller_Bmpaypal extends AbstractAction {
 		$object->set('currency',$currency);
 		$this->mActionForm = $this->_setupActionForm($object);
 	}
+	public function action_PaymentHistory(){
+		$this->template = 'payment_history.html';
+		$uid = 0;
+		if ($this->mModuleAdmin){
+			$uid = intval($this->mParams[0]);
+		}
+		if ($uid==0){
+			$uid = $this->root->mContext->mXoopsUser->uid();
+			$this->userObject = $this->root->mContext->mXoopsUser;
+		}
+		$this->paymentObjects = $this->mModel->getBy_uid($uid);
+	}
 	public function action_view(){
 		/**
 		 * make view
 		 */
 		$view = new View( $this->root );
-		$view->set('actionForm', $this->mActionForm);
+		if (isset($this->mActionForm)){
+			$view->set('actionForm', $this->mActionForm);
+		}
+		$view->set('paymentObjects', $this->paymentObjects);
+		$view->set('userObject', $this->userObject);
 		$view->setTemplate( $this->template );
 	}
 	public function executeForward(&$controller){

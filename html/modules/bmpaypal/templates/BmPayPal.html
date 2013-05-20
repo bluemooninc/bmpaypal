@@ -4,9 +4,9 @@
 <form action="?action=PaymentEdit" method="post">
 	<{xoops_token form=$actionForm}>
 	<{xoops_input type=hidden name=category_id value=$actionForm->get('id')}>
-	<label>
-	<{$actionForm->get('order_id')}>
-	</label>
+	<h2>
+		<{$smarty.const._MD_PAYPAL_ORDER_ID}><{$actionForm->get('order_id')}>
+	</h2>
 	<label>
 		<{$smarty.const._MD_PAYPAL_AMOUNT}><{$actionForm->get('currency')}>
 		<{xoops_input type=text name=amount value=$actionForm->get('amount')}>

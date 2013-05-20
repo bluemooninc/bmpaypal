@@ -1,0 +1,28 @@
+<h3 class="admintitle"><{$smarty.const._MD_PAYPAL_PAYMENT_HISTORY}>:(<{$userObject->getShow('uname')}>)</h3>
+
+<table class="table">
+	<tr>
+		<th><{$smarty.const._MD_PAYPAL_ID}></th>
+		<th><{$smarty.const._MD_PAYPAL_ORDERID}></th>
+		<th><{$smarty.const._MD_PAYPAL_AMOUNT}></th>
+		<th><{$smarty.const._MD_PAYPAL_CURRENCY}></th>
+		<th><{$smarty.const._MD_PAYPAL_STATE}></th>
+		<th><{$smarty.const._MD_PAYPAL_UTIME}></th>
+	</tr>
+	<{foreach item=row from=$paymentObjects}>
+	<tr class="<{cycle values='odd,even'}>">
+		<td><{$row->getShow('id')}></td>
+		<td>
+			<a href="<{$xoops_url}>/modules/bmcart/orderList/index/<{$row->getShow('order_id')}>">
+				<{$row->getShow('order_id')}>
+			</a>
+		</td>
+		<td align="right"><{$row->getShow('amount')}></td>
+		<td><{$row->getShow('currency')}></td>
+		<td><{$row->getShow('state')}></td>
+		<td><{$row->getShow('utime')|date_format:"%G-%m-%d %H:%M"}></td>
+	</tr>
+	<{/foreach}>
+</table>
+
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavi}></div>

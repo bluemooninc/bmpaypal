@@ -1,6 +1,6 @@
 <?php
 define('_MI_PAYPAL_TITLE','PayPal クレジット決済');
-define('_MI_PAYPAL_MEMBER_SAVE','利用登録');
+define('_MI_PAYPAL_PAYMENT_HISTORY','決済履歴');
 define('_MI_PAYPAL_SAVE_CARD','クレジットカード登録');
 define('_MI_PAYPAL_SEARCH_CARD','登録一覧');
 define('_MI_PAYPAL_CARD_PAYMENT','カード払い実行');

@@ -1,6 +1,6 @@
 <?php
 define('_MI_PAYPAL_TITLE','Shopping Cart');
-define('_MI_PAYPAL_MEMBER_SAVE','Member Save');
+define('_MI_PAYPAL_PAYMENT_HISTORY','Payment History');
 define('_MI_PAYPAL_SAVE_CARD','Save Card');
 define('_MI_PAYPAL_ENTRY_TRAN','Entry Tran');
 define('_MI_PAYPAL_EXEC_TRAN','Exec Tran');

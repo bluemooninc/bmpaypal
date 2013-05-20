@@ -46,14 +46,24 @@ class Model_Payment extends AbstractModel
 		return $this->myHandler->getInsertId();
 	}
 
-	public function _getByPayPal_id($paypal_id,$uid){
+	public function getByPayPal_id($paypal_id,$uid=null){
 		$criteria = new CriteriaCompo();
 		$criteria->add(new Criteria('paypal_id',$paypal_id));
-		$criteria->add(new Criteria('uid',$uid));
+		if($uid){
+			$criteria->add(new Criteria('uid',$uid));
+		}
 		$objects = $this->myHandler->getObjects($criteria);
 		if ($objects) return $objects[0];
 	}
 
+	public function &getBy_uid($uid){
+		$objects = array();
+		$criteria = new CriteriaCompo();
+		$criteria->add(new Criteria('uid',$uid));
+		$criteria->addSort('utime','DESC');
+		$objects = $this->myHandler->getObjects($criteria);
+		return $objects;
+	}
 	/**
 	 * Save transaction
 	 */
@@ -69,7 +79,7 @@ class Model_Payment extends AbstractModel
 	 * @param $uid
 	 */
 	public function cancel($paypal_id,$uid,$state){
-		$object = $this->_getByPayPal_id($paypal_id,$uid);
+		$object = $this->getByPayPal_id($paypal_id,$uid);
 		if ($object){
 			$object->set('state',$state);
 			$object->set('utime',time());
@@ -81,13 +91,13 @@ class Model_Payment extends AbstractModel
 	 * @param $uid
 	 * @param $payer_id
 	 */
-	public function setPayerID($paypal_id,$uid,$state,$payer_id){
-		$object = $this->_getByPayPal_id($paypal_id,$uid);
+	public function &setPayerID(&$object,$state,$payer_id){
 		if ($object){
 			$object->set('state',$state);
 			$object->set('payer_id',$payer_id);
 			$object->set('utime',time());
 			$this->myHandler->insert($object,true);
 		}
+		return $object;
 	}
 }

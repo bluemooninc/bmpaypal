@@ -8,12 +8,14 @@
  */
 require_once _MY_MODULE_PATH . 'app/Model/Payment.php';
 require_once _MY_MODULE_PATH . 'app/Model/PayPal.class.php';
+require_once _MY_MODULE_PATH . 'app/Model/MailBuilder.php';
 require_once _MY_MODULE_PATH . 'app/View/view.php';
 
 class Controller_ExecutePayment extends AbstractAction{
 	protected $links;
 	protected $state;
 	protected $Model_PayPal;
+	protected $paymentObject;
 	/**
 	 * constructor
 	 */
@@ -27,7 +29,7 @@ class Controller_ExecutePayment extends AbstractAction{
 		if(isset($_SESSION['bmpaypal'])){
 			$uid = $this->root->mContext->mXoopsUser->get('uid');
 			$token = xoops_getrequest('token');
-			if ($_SESSION['payer_id']){
+			if (isset($_SESSION['payer_id'])){
 				$payer_id = $_SESSION['payer_id'];
 			}else{
 				$_SESSION['payer_id'] = $payer_id = xoops_getrequest('PayerID');
@@ -35,7 +37,12 @@ class Controller_ExecutePayment extends AbstractAction{
 			$paypal_id = $this->Model_PayPal->checkToken($_SESSION['bmpaypal'],$token);
 			if ($paypal_id){
 				$this->state = "Accepted";
-				$this->mModel->setPayerID($paypal_id,$uid,$this->state,$payer_id);
+				$this->paymentObject = $this->mModel->getByPayPal_ID($paypal_id);
+				if ($this->paymentObject->getVar('state')!="Accepted"){
+					$this->paymentObject = $this->mModel->setPayerID($this->paymentObject,$this->state,$payer_id);
+					$mail = new Model_Mail();
+					$mail->sendMail("ThankYouForAccept.tpl",$this->paymentObject,_MD_PAYPAL_PAY_BY_PAYPAL);
+				}
 			}
 		}
 	}
@@ -54,11 +61,13 @@ class Controller_ExecutePayment extends AbstractAction{
 	public function action_index(){
 	}
 	public function action_view(){
+		echo "hoge";
 		/**
 		 * make view
 		 */
 		$view = new View($this->root);
 		$view->set('state',$this->state);
+		$view->set('paymentObject',$this->paymentObject);
 		$view->setTemplate($this->template);
 	}
 }

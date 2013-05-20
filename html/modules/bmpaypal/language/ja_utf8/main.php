@@ -17,7 +17,7 @@ define('_MD_PAYPAL_DIALOG_DELETE_DESC', 'このレコードを削除してもよ
 
 //action form
 define('_MD_PAYPAL_ERROR_REQUIRED', '入力必須項目エラー');
-define('_MD_PAYPAL_ID', '課金ID');
+define('_MD_PAYPAL_ID', '決済ID');
 
 // cart.html
 define('_MD_PAYPAL_CART_INDEX', 'ショッピングカート');
@@ -32,7 +32,7 @@ define('_MD_PAYPAL_MOVE_TO_PAYPAL_DESC','PayPalアカウント決済の準備が
 define('_MD_PAYPAL_TITLE_CARD_PAYMENT'  ,'クレジットカードでのお支払い');
 define('_MD_PAYPAL_DESC_CARD_PAYMENT'  ,'お支払い金額をPayPalにて即時決済します。カード情報を入力し支払い実行をクリックしてください。');
 define('_MD_PAYPAL_CARD_PAYMENT'  ,'支払い実行');
-
+define('_MD_PAYPAL_PAYMENT_HISTORY','決済履歴');
 define('_MD_PAYPAL_TITLE_SAVECARD'  ,'クレジットカード登録');
 define('_MD_PAYPAL_TITLE_ADDCARD'  ,'クレジットカード登録');
 define('_MD_PAYPAL_PROCEED_TO_ADDCARD'  ,'ご利用登録が済んでいますので、クレジットカード登録へお進みください。');
@@ -48,8 +48,16 @@ define('_MD_PAYPAL_DESC_EXECTRAN'  ,'PayPal へのお支払い方法と回数を
 define('_MD_PAYPAL_DONE_MEMBERSAVE','PayPal に貴方のIDでアカウントを作成しました。');
 define('_MD_PAYPAL_DONE_SAVECARD'  ,'PayPal に貴方のIDでクレジットカード情報を登録しました。');
 define('_MD_PAYPAL_DONE_SEARCHCARD','PayPal に貴方のIDで登録したクレジットカード情報を表示します。');
-define('_MD_PAYPAL_DONE_ENTRYTRAN' ,'PayPal にてお支払い内容の照会が完了しました。');
+define('_MD_PAYPAL_DONE_ENTRYTRAN' ,'PayPal にてお支払いの受付が完了しました。取引完了まで以下のテキストを大切に保管して下さい。');
 define('_MD_PAYPAL_DONE_EXECTRAN'  ,'PayPal にてお支払いが完了しました。');
+define('_MD_PAYPAL_DONE_CANCELLED'   ,'PayPal のお支払いがキャンセルされました。取引を停止しました。');
+
+// payment history
+define('_MD_PAYPAL_UID','ユーザーID');
+define('_MD_PAYPAL_CURRENCY','決済通貨');
+define('_MD_PAYPAL_STATE','状態');
+define('_MD_PAYPAL_UTIME','更新日時');
+
 //SaveCard
 define('_MD_PAYPAL_MEMBERID','会員ID');			// XOOPSのUID
 define('_MD_PAYPAL_CARDSEQ','No.');		// クレジットカード複数毎指定時の選択
@@ -72,13 +80,12 @@ define('_MD_PAYPAL_DONOT','しない');
 define('_MD_PAYPAL_SECMODE0','論理');
 define('_MD_PAYPAL_SECMODE1','物理');
 //EntryTran
-define('_MD_PAYPAL_ORDERID','クレジット決済番号');
+define('_MD_PAYPAL_ORDERID','注文番号');
 define('_MD_PAYPAL_JOBCD','処理区分');
 define('_MD_PAYPAL_JOBCD_AUTH','AUTH:仮売上');
 define('_MD_PAYPAL_JOBCD_CHECK','CHECK:有効性チェック');
 define('_MD_PAYPAL_JOBCD_CAPTURE','CAPTURE:即時売上');
 define('_MD_PAYPAL_ITEMCODE','商品コード');
-define('_MD_PAYPAL_AMOUNT','ご利用金額');
 define('_MD_PAYPAL_TAX','税送料');
 define('_MD_PAYPAL_TDFLAG','3D利用');
 define('_MD_PAYPAL_TDFLAG_SECURE','利用する');
@@ -100,6 +107,8 @@ define('_MD_PAYPAL_CLIENTFIELD1','加盟店自由項目１');
 define('_MD_PAYPAL_CLIENTFIELD2','加盟店自由項目２');
 define('_MD_PAYPAL_CLIENTFIELD3','加盟店自由項目３');
 
+//BmPayPal
 define('_MD_PAYPAL_PAY_BY_PAYPAL','PayPalアカウントによるお支払い');
 define('_MD_PAYPAL_PAY_BY_PAYPAL_DSEC','当サイトからPayPalサイトへ移動してお支払い頂き、確定後当サイトへ戻ります。');
 define('_MD_PAYPAL_AMOUNT','支払い金額(USD)');
+define('_MD_PAYPAL_ORDER_ID','注文番号：');

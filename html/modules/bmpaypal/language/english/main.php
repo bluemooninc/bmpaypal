@@ -29,6 +29,7 @@ define('_MD_PAYPAL_CARD_PAYMENT'  ,'Accept the peyment');
 define('_MD_PAYPAL_TITLE_SAVECARD'  ,'Save your card info to PayPal');
 define('_MD_PAYPAL_TITLE_ADDCARD'  ,' Ass your card info to PayPal');
 define('_MD_PAYPAL_PROCEED_TO_ADDCARD'  ,'Already registered your information. Please proceed to next.');
+define('_MD_PAYPAL_PAYMENT_HISTORY','Payment History');
 
 define('_MD_PAYPAL_TITLE_SEARCHCARD'  ,'Search registered card');
 define('_MD_PAYPAL_TITLE_ENTRYTRAN' ,'Pay by Credit card');
@@ -37,6 +38,9 @@ define('_MD_PAYPAL_SUBMIT_REGISTRATION','Agree and make an account');
 define('_MD_PAYPAL_DESC_SAVECARD'  ,'Save your card information. Please fill out the necessary information.');
 define('_MD_PAYPAL_DESC_SEARCHCARD','Search your card information. Please fill out the necessary information.');
 define('_MD_PAYPAL_DESC_ENTRYTRAN' ,'Please click "to confirm the payment" to proceed it');
+define('_MD_PAYPAL_DONE_ENTRYTRAN' ,'You accepted by PayPal. Please keep below text until the end of purchase.');
+define('_MD_PAYPAL_DONE_EXECTRAN'  ,'Your payment was executed. Please wait shipping or contact from this site.');
+define('_MD_PAYPAL_DONE_CANCELLED' ,'Your payment was canceled.');
 //SaveCard
 define('_MD_PAYPAL_MEMBERID','Member ID');			// XOOPS UID
 define('_MD_PAYPAL_CARDSEQ','Card seq No.');		//
@@ -66,3 +70,4 @@ define('_MD_PAYPAL_DONETRAN','お支払い済み');
 define('_MD_PAYPAL_PAY_BY_PAYPAL','Pay by PalPal account');
 define('_MD_PAYPAL_PAY_BY_PAYPAL_DSEC','Proceed to PayPal site and back after payment.');
 define('_MD_PAYPAL_AMOUNT','Amount(USD)');
+define('_MD_PAYPAL_ORDER_ID','Order Number: ');
