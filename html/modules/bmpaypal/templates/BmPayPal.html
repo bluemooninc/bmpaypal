@@ -7,12 +7,14 @@
 	<h2>
 		<{$smarty.const._MD_PAYPAL_ORDER_ID}><{$actionForm->get('order_id')}>
 	</h2>
-	<label>
-		<{$smarty.const._MD_PAYPAL_AMOUNT}><{$actionForm->get('currency')}>
-		<{xoops_input type=text name=amount value=$actionForm->get('amount')}>
-		<{xoops_input type=hidden name=order_id value=$actionForm->get('order_id')}>
-		<{xoops_input type=hidden name=currency value=$actionForm->get('currency')}>
-	</label>
+	<h3>
+		<{$smarty.const._MD_PAYPAL_AMOUNT}>
+		<{$actionForm->get('currency')}>
+		<{$actionForm->get('amount')}>
+	</h3>
+	<{xoops_input type=hidden name=amount value=$actionForm->get('amount')}>
+	<{xoops_input type=hidden name=order_id value=$actionForm->get('order_id')}>
+	<{xoops_input type=hidden name=currency value=$actionForm->get('currency')}>
 	<input class="formButton" type="submit" value="<{$smarty.const._BACK}>" name="_form_control_cancel"/>
 	<input class="formButton" type="submit" value="<{$smarty.const._SUBMIT}>"/>
 </form>

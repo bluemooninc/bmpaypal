@@ -18,7 +18,9 @@ class bmpaypal_PaymentAdminEditForm extends XCube_ActionForm
 
 	function prepare()
 	{
-		parent::setToken($this->getTokenName());    // Set Token to XCUBE_TOKEN session
+		//parent::setToken($this->getTokenName());    // Set Token to XCUBE_TOKEN session
+		$token =& XoopsMultiTokenHandler::quickCreate($this->getTokenName());
+
 		//
 		// Set form properties
 		//

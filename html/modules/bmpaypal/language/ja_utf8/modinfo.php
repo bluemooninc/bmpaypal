@@ -14,4 +14,4 @@ define('_MI_PAYPAL_RETURN_URL','API実行後の戻先リンク');
 define('_MI_PAYPAL_RETURN_URL_DESC','モジュールフォルダ以下を記載');
 
 define('_MI_PAYPAL_ACCEPT_PAYPAL','PayPalアカウントで支払う');
-define('_MI_PAYPAL_PAY_BY_PAYPAL','サイト入場料のお支払い');
+define('_MI_PAYPAL_PAY_BY_PAYPAL','PayPalアカウントによる支払い');

@@ -61,7 +61,6 @@ define('_MD_PAYPAL_DONOT','Stop it');
 //EntryTran
 define('_MD_PAYPAL_ORDERID','Credit order type');
 define('_MD_PAYPAL_ITEMCODE','Item Code');
-define('_MD_PAYPAL_AMOUNT','Amount');
 define('_MD_PAYPAL_TAX','Tax');
 //ExecTran
 define('_MD_PAYPAL_ACCESSID','Access ID');
@@ -70,4 +69,4 @@ define('_MD_PAYPAL_DONETRAN','お支払い済み');
 define('_MD_PAYPAL_PAY_BY_PAYPAL','Pay by PalPal account');
 define('_MD_PAYPAL_PAY_BY_PAYPAL_DSEC','Proceed to PayPal site and back after payment.');
 define('_MD_PAYPAL_AMOUNT','Amount(USD)');
-define('_MD_PAYPAL_ORDER_ID','Order Number: ');
+define('_MD_PAYPAL_ORDER_ID','Order Number');

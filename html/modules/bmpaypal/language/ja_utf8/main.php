@@ -1,6 +1,6 @@
 <?php
 
-define('_MD_PAYPAL_MODULE_TITLE', 'PayPal Payment');
+define('_MD_PAYPAL_MODULE_TITLE', 'PayPalペイメント');
 define('_MD_PAYPAL_RECEIPT', 'クレジットご利用明細');
 define('_MD_PAYPAL_TABLE_STATUS', '備考');
 define('_MD_PAYPAL_TABLE_STATUS_0', 'カートの中身');
@@ -111,4 +111,4 @@ define('_MD_PAYPAL_CLIENTFIELD3','加盟店自由項目３');
 define('_MD_PAYPAL_PAY_BY_PAYPAL','PayPalアカウントによるお支払い');
 define('_MD_PAYPAL_PAY_BY_PAYPAL_DSEC','当サイトからPayPalサイトへ移動してお支払い頂き、確定後当サイトへ戻ります。');
 define('_MD_PAYPAL_AMOUNT','支払い金額(USD)');
-define('_MD_PAYPAL_ORDER_ID','注文番号：');
+define('_MD_PAYPAL_ORDER_ID','注文番号');
