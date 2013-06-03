@@ -56,7 +56,9 @@ class Controller_Bmpaypal extends AbstractAction {
 		if (isset($this->mActionForm)){
 			$view->set('actionForm', $this->mActionForm);
 		}
-		$view->set('paymentObjects', $this->paymentObjects);
+		if (isset($this->paymentObjects)){
+			$view->set('paymentObjects', $this->paymentObjects);
+		}
 		$view->set('userObject', $this->userObject);
 		$view->setTemplate( $this->template );
 	}
